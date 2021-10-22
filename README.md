@@ -7,3 +7,6 @@ An easy application framework for PC and Android. html/css as UI , js(+vue.js) w
 - 参数格式为`[路径]?[数据]`如`hello.luadata?zihesenior`，路径中不能包含`?`,数据可以为任意字符。
 - 在lua文件中直接使用已经定义好的对象`Parameter`访问传过来的数据，使用Return 返回数据,返回的数据即为PostAsync回调函数的参数。
 - 如:在hello.luadata文件中 `return "hello "..Parameter` 回调函数`e=>{}`的e会是"hello zihesenior"。
+
+示例截图：
+![](https://github.com/zihesenior/LuaAppFramework/blob/main/luaapp.png)
