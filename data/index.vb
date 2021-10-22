@@ -44,9 +44,10 @@
     End Function
     Function loaddata(Optional page As Integer = 1) As Dictionary(Of String, String)
         'Dim xa = XDocument.Load(Server.MapPath("~/Assets/event/2016.xml"))...<event>
-        Dim rc As New BasicRedis.RedisClient("150.129.138.116", 7369)
-        rc.Auth("ac123456")
-        Dim re = rc.HashGetAll("BigEvent")
+
+        Dim sh = New BasicRedis.RedisClient("127.0.0.1", 7369)
+        sh.Auth("zihesenior")
+        Dim re = sh.HashGetAll("BigEvent")
         Dim dic As Dictionary(Of String, String) = re
         'If Not Nothing Is re And re.count > 1 Then
         '    For i = 0 To re.count / 2 - 1
