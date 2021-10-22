@@ -32,8 +32,8 @@ Public Class LuaMoudle
 
     Function redisKeys(p As String) As LuaTable
         'Dim xa = XDocument.Load(Server.MapPath("~/Assets/event/2016.xml"))...<event>
-        Dim rc As New BasicRedis.RedisClient("150.129.138.116", 7369)
-        rc.Auth("ac123456")
+        Dim rc = New BasicRedis.RedisClient("127.0.0.1", 7369)
+        rc.Auth("zihesenior")
         Dim re = rc.Keys(p)
         Dim dic As LuaTable = lua.DoString("return {}")(0)
         If Not Nothing Is re And re.count > 1 Then
