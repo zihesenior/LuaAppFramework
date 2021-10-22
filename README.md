@@ -1,7 +1,7 @@
 # LuaAppFramework
 An easy application framework for PC and Android. html/css as UI , js(+vue.js) work for UI and VB.NET/C#/Lua work as data provider. It's strict mvvm model divided by different language.
 
-- 这是一个用lua写桌面应用的框架。
+- 这是一个用 lua + html/css/js 写桌面应用的框架。
 - 你可以像写Web应用一样只关注www目录。
 - 在js中使用`PostAsync(p,e=>{})`用一个参数加一个回调函数发起数据请求。
 - 参数格式为`[路径]?[数据]`如`hello.luadata?zihesenior`，路径中不能包含`?`,数据可以为任意字符。
