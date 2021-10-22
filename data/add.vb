@@ -12,8 +12,8 @@
     End Function
 
     Sub add(d As Date, e As String)
-        Dim sh = New BasicRedis.RedisClient("150.129.138.116", 7369)
-        sh.Auth("ac123456")
+        Dim sh = New BasicRedis.RedisClient("127.0.0.1", 7369)
+        sh.Auth("zihesenior")
         sh.HashSet("BigEvent", d.ToString("yyyy-MM-dd"), e)
     End Sub
 End Class
