@@ -1,0 +1,97 @@
+::selection{ background-color: #E13300; color: white; }
+/*::moz-selection{ background-color: #E13300; color: white; }
+::webkit-selection{ background-color: #E13300; color: white; }*/
+body { 
+    margin: 0px;
+    padding: 0px;
+    font-family: "Lucida Grande","Lucida Sans Unicode",verdana,lucida,arial,helvetica,sans-serif;
+    color: rgb(153, 153, 153); 
+    min-width: 600px;
+}
+a {
+    text-decoration: none;
+    color:  rgb(153, 153, 153);
+}
+#aside {
+    box-shadow:0px 0px 17px rgba(0,0,0,0.15);
+    position: fixed;
+    top: 0;bottom: 0;
+    width: 170px;
+    padding: 0 17px;
+}
+#Qlinks p {
+    font-size: 13px;
+    text-align: left;
+    padding: 2px;
+}
+#aside ul {
+    text-align: center;
+    padding: 0;
+}
+#aside li {
+    box-shadow:0px 0px 17px rgba(0,0,0,0.15);
+    margin: 7px;
+    list-style: none;
+    float: left;
+    margin: 7px;
+    font-size:32px;
+    text-align:center;
+    line-height:40px;
+    width:40px;
+    height:40px;
+    border-radius:20px;
+}
+#logo {
+    height: 240px;
+    text-align: center;
+}
+#nav a {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    padding: 0;
+    display:block;
+    padding:4px 7px
+}
+
+#gotop {
+    cursor: pointer;
+    position: fixed;
+    text-align: center;
+    right: 17px;
+    bottom: 17px;
+    line-height: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius:25px;
+    background: #fff;
+    box-shadow: 0px 0px 17px rgba(0,0,0,0.15);
+}
+
+#main {
+    margin: 0 0 0 200px;
+    padding: 17px;
+    min-height: 700px;
+}
+#main a{
+    text-decoration: none;
+    color: #E13300;
+}
+.event_item {
+    background:#fefefe;
+    box-shadow:0px 0px 17px rgba(0,0,0,0.15);
+    border: 1px solid #eee;
+    text-overflow: ellipsis;
+    padding:20px;
+    margin: 7px;
+    min-height: 20px;
+    max-height: 500px;
+    border-radius:7px;
+}
+#footer {
+    height: 170px;
+}
+#footer_body {
+    text-align: center;
+    padding: 7px;
+}

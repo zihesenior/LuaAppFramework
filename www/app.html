@@ -1,0 +1,93 @@
+﻿<html>
+<head>
+    <!--<base href="file:///D:/Projects/HY/GamefunSys/MiniServer/bin/Debug/www/" />-->
+    <meta charset="utf-8" />
+    <link href="Assets/css/style.css" rel="stylesheet" />
+    <link href="Assets/css/ac.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>app</title>
+    <script src="vue.global.prod.js"></script>
+</head>
+<body id="view">
+    <div id="aside">
+        <div id="logo">
+            <label style="font-size: 27px;line-height: 170px;font-weight:bold">每日记</label><br />
+            <label style="font-size: 24px">时间轴</label>
+        </div>
+        <div id="nav">
+            <a class="button" v-on:click="gxe('index.xdata');">事件</a>
+            <a class="button" v-on:click="gxe('index.luadata');">Lua</a>
+            <a class="button" v-on:click="gxe('about.xdata');">关于</a>
+        </div>
+        <div id="footer_body">
+            子禾学长<br /><br />
+            <div>
+                <button type="button" v-on:click="gjs('Lab.xdata');">测试</button>
+            </div>
+        </div>
+    </div>
+    <div id="main">
+        <div class="event_item" style="padding:1em">
+            <b style="font-size:2em">列表</b>
+            <div id="addpanel" style="text-align: center;display:inline-block;float:right;margin-top:-5px">
+                <input name="date" type="date" v-model="adddata.date" />
+                <input name="event" type="text" v-model="adddata.event" />
+                <input type="button" value="添加" v-on:click="add" />
+            </div>
+        </div>
+        <div v-html="content"></div>
+        <p id="gotop" onclick="window.scrollTo(0,0)">^</p>
+    </div>
+    <script>
+        Date.prototype.format = function (fmt) {
+            var o = {
+                "M+": this.getMonth() + 1,                 //月份
+                "d+": this.getDate(),                    //日
+                "h+": this.getHours(),                   //小时
+                "m+": this.getMinutes(),                 //分
+                "s+": this.getSeconds(),                 //秒
+                "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+                "S": this.getMilliseconds()             //毫秒
+            };
+            if (/(y+)/.test(fmt)) {
+                fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+            }
+            for (var k in o) {
+                if (new RegExp("(" + k + ")").test(fmt)) {
+                    fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+                }
+            }
+            return fmt;
+        }
+    </script>
+    <script type="text/javascript">
+        const vm = {
+            data() {
+                return {
+                    t: "每日记",
+                    content: "",
+                    js: null,
+                    adddata: {
+                        date: "",
+                        event: "今日事，明日事，过去事"
+                    }
+                }
+            },
+            methods: {
+                gxe: function (p) { PostAsync(p, e => { this.content = e; }) },
+                gjs: function (p) { PostAsync(p, e => { this.js = JSON.parse(e); this.content = this.js[0].path }) },
+                add: function () { PostAsync("add.xdata?" + JSON.stringify(this.adddata), e => { alert(e); }); }
+            },
+            mounted() {
+                this.$nextTick(function () {
+                    this.adddata.date = new Date().format("yyyy-MM-dd");
+                    this.gxe('index.xdata');
+                    document.title = this.t;
+                })
+            }
+        }
+        Vue.createApp(vm).mount('#view');
+    </script>
+</body>
+</html>
